@@ -55,15 +55,18 @@ macOS.
 
 This image is pretty big (~1 GB), and you probably don't need it.
 
-If you want to build it anyway:
+You can download a pre-built image directly from GitHub Packages:
+
+```bash
+docker run --rm -v $PWD:/cwd -it docker.pkg.github.com/heyajulia/weer/weer:dev bash
+```
+
+or build it yourself:
 
 ```bash
 docker build -f Dockerfile.dev -t weer:dev .
-docker run -v $PWD:/cwd -it weer:dev bash
+docker run --rm -v $PWD:/cwd -it weer:dev bash
 ```
-
-These commands assume you're in the repository root, and drop you into Bash
-shell with Valgrind etc. pre-installed.
 
 ## Quick links
 
