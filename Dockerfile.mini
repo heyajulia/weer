@@ -1,0 +1,23 @@
+FROM alpine:3.12 AS build
+
+RUN apk update && \
+    apk add --no-cache build-base clang curl-dev
+
+RUN mkdir /build
+
+WORKDIR /build
+
+COPY . .
+
+RUN make
+
+
+FROM alpine:3.12 AS runtime
+
+COPY --from=build /build/out/weer .
+
+RUN apk update && apk add --no-cache libcurl
+
+USER guest
+
+CMD ./weer
