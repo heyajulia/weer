@@ -7,12 +7,29 @@ print a detailed weather forecast (in JSON format) to stdout.
 
 ## Installation
 
-Run **weer** everywhere Docker is supported:
+### Docker
+
+#### Build it yourself
 
 ```bash
-docker build -f Dockerfile.mini -t weer:mini .  # just 8 MB!
-docker run -it weer:mini
+docker build -f Dockerfile.mini -t weer:mini .
+docker run --rm weer:mini
 ```
+
+#### Download a pre-built image
+
+You need to be logged in to the GitHub Packages Docker registry for this to
+work.
+
+1. [Generate a personal access token][pat] with the `read:packages` scope.
+2. Run docker login docker.pkg.github.com`. Your username is the same as your
+   GitHub username, and the personal access token is your password.
+
+```bash
+docker run --rm docker.pkg.github.com/heyajulia/weer/weer:mini
+```
+
+### Native executables
 
 I'm working on adding pre-built Docker images and (of course) native executables
 for a number of platforms (macOS, Linux, and — hopefully! — Windows).
@@ -55,5 +72,6 @@ shell with Valgrind etc. pre-installed.
 - [Data access and terms of service][tos]: general information and the required
   branding.
 
+[pat]: https://github.com/settings/tokens/new
 [lf]: https://developer.yr.no/doc/locationforecast/HowTO/
 [tos]: https://hjelp.yr.no/hc/en-us/articles/360001946134-Data-access-and-terms-of-service
