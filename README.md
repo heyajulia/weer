@@ -16,14 +16,14 @@ docker build -f Dockerfile.mini -t weer:mini .
 docker run --rm weer:mini
 ```
 
-#### Download a pre-built image
+#### Download a pre-built Docker image
 
-You need to be logged in to the GitHub Packages Docker registry for this to
-work.
-
-1. [Generate a personal access token][pat] with the `read:packages` scope.
-2. Run `docker login docker.pkg.github.com`. Your username is the same as your
-   GitHub username, and the personal access token is your password.
+> **Note**: You need to be logged in to the GitHub Packages Docker registry for
+> this to work.
+>
+> 1. [Generate a personal access token][pat] with the `read:packages` scope.
+> 2. Run `docker login docker.pkg.github.com`. Your username is the same as your
+>    GitHub username, and the personal access token is your password.
 
 ```bash
 docker run --rm docker.pkg.github.com/heyajulia/weer/weer:mini
