@@ -31,8 +31,8 @@ docker run --rm docker.pkg.github.com/heyajulia/weer/weer:mini
 
 ### Native executables
 
-I'm working on adding pre-built Docker images and (of course) native executables
-for a number of platforms (macOS, Linux, and — hopefully! — Windows).
+I'm working on building native executables for a number of platforms (macOS,
+Linux, and — hopefully! — Windows).
 
 ## Development
 
