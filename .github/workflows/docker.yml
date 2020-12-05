@@ -1,0 +1,23 @@
+name: Build weer Docker images
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - src/**
+      - Makefile
+jobs:
+  build:
+    name: Build Docker image
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        tag:
+          - mini
+          - dev
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker login https://docker.pkg.github.com -u ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}
+      - run: docker build -f Dockerfile.${{ matrix.tag }} -t docker.pkg.github.com/heyajulia/weer/weer:${{ matrix.tag }} .
+      - run: docker push docker.pkg.github.com/heyajulia/weer/weer:${{ matrix.tag }}
