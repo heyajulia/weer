@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - src/**
+      - Makefile
 jobs:
   build:
     name: Build Docker image
