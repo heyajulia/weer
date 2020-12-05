@@ -1,0 +1,14 @@
+name: Build weer Mini Docker image
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Build Docker image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker login https://docker.pkg.github.com -u ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}
+      - run: docker build -f Dockerfile.mini -t docker.pkg.github.com/heyajulia/weer/weer:mini .
+      - run: docker push docker.pkg.github.com/heyajulia/weer/weer:mini
