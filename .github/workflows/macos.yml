@@ -1,0 +1,20 @@
+name: Build weer for macOS
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - src/**
+      - Makefile
+jobs:
+  build:
+    name: Build weer
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: make
+      - uses: actions/upload-artifact@v2
+        with:
+          name: weer
+          path: out/weer
