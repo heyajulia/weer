@@ -14,7 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: make
+      - run: tar czf out/weer.tar.gz out/weer # workaround for https://git.io/JInpl
       - uses: actions/upload-artifact@v2
         with:
           name: weer
-          path: out/weer
+          path: out/weer.tar.gz
