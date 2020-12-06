@@ -18,6 +18,6 @@ jobs:
           - dev
     steps:
       - uses: actions/checkout@v2
-      - run: docker login https://docker.pkg.github.com -u ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}
-      - run: docker build -f Dockerfile.${{ matrix.tag }} -t docker.pkg.github.com/heyajulia/weer/weer:${{ matrix.tag }} .
-      - run: docker push docker.pkg.github.com/heyajulia/weer/weer:${{ matrix.tag }}
+      - run: docker login https://heyajulia-docker-weer-docker.bintray.io --username heyajulia --password ${{ secrets.BINTRAY_API_KEY }}
+      - run: docker build -f Dockerfile.${{ matrix.tag }} -t heyajulia-docker-weer-docker.bintray.io/weer/weer:${{ matrix.tag }} .
+      - run: docker push heyajulia-docker-weer-docker.bintray.io/weer/weer:${{ matrix.tag }}
