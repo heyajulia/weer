@@ -14,8 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: make
-      - run: tar czf out/weer.tar.gz out/weer # workaround for https://git.io/JInpl
-      - uses: actions/upload-artifact@v2
-        with:
-          name: weer
-          path: out/weer.tar.gz
+      - name: Upload to Bintray
+        run: >
+          curl -T out/weer
+          -u heyajulia:${{ secrets.BINTRAY_API_KEY }}
+          -H "X-Bintray-Package: weer-macos"
+          -H "X-Bintray-Version: $(out/weer --version 2>&1)"
+          https://api.bintray.com/content/heyajulia/weer-binaries/weer

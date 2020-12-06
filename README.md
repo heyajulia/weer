@@ -22,9 +22,9 @@ docker run --rm weer:mini
 docker run --rm heyajulia-docker-weer-docker.bintray.io/weer/weer:mini
 ```
 
-### Native executables
+### Native binaries
 
-I'm working on building native executables for a number of platforms (macOS,
+I'm working on building native binaries for a number of platforms (macOS,
 Linux, and — hopefully! — Windows).
 
 ## Development

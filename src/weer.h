@@ -2,7 +2,7 @@
 
 #include <curl/curl.h>
 
-#define WEER_VERSION "0.1.0"
+#define WEER_VERSION "0.1.1"
 #define WEER_REPOSITORY_URL "https://github.com/heyajulia/weer"
 #define WEER_IPINFO_USER_AGENT "curl/" LIBCURL_VERSION
 #define WEER_API_USER_AGENT "weer/" WEER_VERSION " (+" WEER_REPOSITORY_URL ")"

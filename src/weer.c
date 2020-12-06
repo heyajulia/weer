@@ -2,6 +2,7 @@
 #include <curl/curl.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sysexits.h>
 #include "char_buf.h"
 
 size_t write_data(void* buffer,
@@ -55,8 +56,13 @@ double* parse_coordinates(char* s) {
   return coordinates;
 }
 
-int main(__attribute__((unused)) int argc,
-         __attribute__((unused)) const char* argv[]) {
+int main(int argc, const char* argv[]) {
+  // HACK: make weer --version work for Bintray
+  if (argc == 2 && strcmp(argv[1], "--version") == 0) {
+    fprintf(stderr, "%s\n", WEER_VERSION);
+    exit(EX_USAGE);
+  }
+
   curl_global_init(CURL_GLOBAL_ALL);
 
   CURL* h = curl_easy_init();
