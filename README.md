@@ -18,15 +18,8 @@ docker run --rm weer:mini
 
 #### Download a pre-built Docker image
 
-> **Note**: You need to be logged in to the GitHub Packages Docker registry for
-> this to work.
->
-> 1. [Generate a personal access token][pat] with the `read:packages` scope.
-> 2. Run `docker login docker.pkg.github.com`. Your username is the same as your
->    GitHub username, and the personal access token is your password.
-
 ```bash
-docker run --rm docker.pkg.github.com/heyajulia/weer/weer:mini
+docker run --rm heyajulia-docker-weer-docker.bintray.io/weer/weer:mini
 ```
 
 ### Native executables
@@ -55,10 +48,11 @@ macOS.
 
 This image is pretty big (~1 GB), and you probably don't need it.
 
-You can download a pre-built image directly from GitHub Packages:
+You can download a pre-built image directly from **weer**'s Bintray Docker
+registry:
 
 ```bash
-docker run --rm -v $PWD:/cwd -it docker.pkg.github.com/heyajulia/weer/weer:dev bash
+docker run --rm -v $PWD:/cwd -it heyajulia-docker-weer-docker.bintray.io/weer/weer:dev bash
 ```
 
 or build it yourself:
@@ -75,6 +69,5 @@ docker run --rm -v $PWD:/cwd -it weer:dev bash
 - [Data access and terms of service][tos]: general information and the required
   branding.
 
-[pat]: https://github.com/settings/tokens/new
 [lf]: https://developer.yr.no/doc/locationforecast/HowTO/
 [tos]: https://hjelp.yr.no/hc/en-us/articles/360001946134-Data-access-and-terms-of-service
