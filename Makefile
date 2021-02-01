@@ -1,9 +1,10 @@
+CC=clang
 CURL_CFLAGS = $(shell curl-config --cflags)
 CURL_LIBS = $(shell curl-config --libs)
 
 out/weer: $(wildcard src/*.c src/*.h)
 	mkdir -p out
-	clang -o out/weer -g -Wall -Werror -Wextra -Wpedantic $(CURL_CFLAGS) $(CURL_LIBS) $(wildcard src/*.c)
+	$(CC) -o out/weer -g -Wall -Werror -Wextra -Wpedantic  $(wildcard src/*.c) $(CURL_CFLAGS) $(CURL_LIBS)
 
 all: clean out/weer
 
